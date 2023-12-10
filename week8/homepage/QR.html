@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="QR.css" rel="stylesheet">
+  <title>QR Code Generator</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="urlInput" placeholder="Enter URL" class="urlInput">
+        <button id="generateQRCodeButton" class="generateQRCodeButton">Generate QR Code</button>
+        <div class="qrCodeContainer" id="qrCodeContainer"></div>
+        <button id="saveQRCodeButton" class="generateQRCodeButton">Save QR Code</button>
+    </div>
+
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script>
+    const generateQRCode = () => {
+      const urlInput = document.getElementById('urlInput');
+      const url = urlInput.value;
+
+      if (!url || !url.trim()) {
+        alert('Please enter a valid URL');
+        return;
+      }
+
+      const qrCodeContainer = document.getElementById('qrCodeContainer');
+      qrCodeContainer.innerHTML = ''; // Clear existing QR code image
+
+      try {
+        const qrCode = new QRCode(qrCodeContainer, {
+          text: url,
+          width: 200,
+          height: 200,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+        });
+
+        const qrCodeImage = qrCodeContainer.getElementsByTagName('img')[0];
+        qrCodeImage.id = 'qrCodeImage';
+        qrCodeImage.style.width = '100%';
+        qrCodeImage.style.height = '100%';
+      } catch (error) {
+        alert('Error generating QR code: ' + error.message);
+        return;
+      }
+    };
+
+    const generateQRCodeButton = document.getElementById('generateQRCodeButton');
+    generateQRCodeButton.addEventListener('click', generateQRCode);
+
+    const saveQRCode = () => {
+        const qrCodeImage = document.getElementById('qrCodeImage');
+        const downloadLink = document.createElement('a');
+        downloadLink.href = qrCodeImage.src;
+        downloadLink.download = 'qrCode.png';
+        downloadLink.click();
+      };
+
+      const saveQRCodeButton = document.getElementById('saveQRCodeButton');
+      saveQRCodeButton.addEventListener('click', saveQRCode);
+</script>
+</body>
+</html>

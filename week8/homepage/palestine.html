@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="palestine.css" rel="stylesheet">
+    <title>palestien</title>
+</head>
+<body>
+    <div class="flag-div">
+
+    </div>
+    <div class="all-content">
+    <div>
+        <h1 >free palestien</h1>
+        <h2 id="free">dont stop saying
+            <script>
+
+                // Flashing "Free-palestien".
+
+                function flash(){
+                    let body = document.querySelector("#free");
+
+                    if (body.style.visibility == "visible"){
+                        body.style.visibility = "hidden";
+                    }
+                    else{
+                        body.style.visibility = "visible";
+                    }
+                }
+                window.setInterval(flash, 1000);
+        </script>
+        </h2>
+        <div class="three-div ">
+            <button id="r" class="red-button">red</button>
+            <button id="g" class="green-button">green</button>
+            <button id="b" class="blue-button">black</button>
+            <div class="white-div">
+                <button id="w" class="white-button">white</button>
+            </div>
+        </div>
+    </div>
+        <script>
+            let body = document.querySelector("body");
+            document.querySelector('#r').addEventListener('click',function(){
+                body.style.backgroundColor = 'red';
+            });
+            document.querySelector('#b').addEventListener('click',function(){
+                body.style.backgroundColor = 'black';
+            });
+             document.querySelector('#g').addEventListener('click',function(){
+                body.style.backgroundColor = 'green';
+            });
+            document.querySelector("#w").addEventListener('click', function(){
+                body.style.backgroundColor = 'white';
+            });
+
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    <style>
+        .correct{
+            color:green;
+        }
+        .incorrect{
+            color: red;s
+        }
+    </style>
+    <script>
+        function checkcorrectness(answer){
+            // dict of correct answers.
+            const right = {
+                1:"Al Ahly SC",
+                2:"SURE"
+            }
+            if ( answer.value == right[answer.name] )
+            {
+                answer.classList.add("correct");
+                window.alert("Correct!")
+            }
+            else
+            {
+                answer.classList.add("incorrect");
+                window.alert("incorrect")
+            }
+        }
+
+    </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr>
+                <div>
+                    <h3>What's the favorite club in Egypt?</h3>
+                    <input type="submit" value="Al Ahly SC" name="1" onclick="checkcorrectness(this)">
+                    <input type="submit" value="Zamalek SC" name="1"onclick="checkcorrectness(this)">
+                    <input type="submit" value="Ismaily SC" name="1" onclick="checkcorrectness(this)">
+                    <h3>Did you benefit from cs50's course?</h3>
+                    <input type="submit" value="SURE" name="2" onclick="checkcorrectness(this)">
+                    <input type="submit" value="I DONT KNEW"name="2" onclick="checkcorrectness(this)">
+                    <input type="submit" value="NO"name="2" onclick="checkcorrectness(this)">
+                    <input type="submit" value="MAY BE"name="2" onclick="checkcorrectness(this)">
+                </div>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <div>
+                    <h3>Do you support palestien ?</h3>
+                    <input type="text" placeholder="Answer" id="textt">
+                    <button id="check">Ckeck Answer</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // TODO: Add free response question here
+            // If the textkbox is the contain a usa the button shoud be in the green else it should be red (Using (document.querySelector, addEventListener))
+
+            // Create a variable to get the id of the button.
+            let button = document.querySelector("#check");
+
+            button.addEventListener('click', function()
+            {
+                // Create a variable to take the vale of textbox.
+                let user_input = document.querySelector('#textt').value;
+                console.log(user_input);
+                // Answers
+                answer = ["sure" , "yes", "y"];
+                // if (user_input.toLowerCase() == "answer")
+                if (answer.includes(user_input.toLowerCase()))
+                {
+                    button.style.color = 'green';
+                    // print("correct");
+                    window.alert("Correct!")
+                }
+                else
+                {
+                    button.style.color = 'red';
+                    // print("incorrect");
+                    window.alert("Incorrect")
+                }
+            });
+        </script>
+    </body>
+</html>

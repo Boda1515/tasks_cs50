@@ -1,0 +1,85 @@
+html {
+    /* background: url('wallpaperflare.com_wallpaper.jpg') no-repeat center fixed; */
+    background: url('https://c4.wallpaperflare.com/wallpaper/781/756/59/terminal-hacker-computer-ubuntu-wallpaper-preview.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* background-image: url("https://c4.wallpaperflare.com/wallpaper/315/373/161/nightscape-full-moon-4k-minimal-wallpaper-preview.jpg"); */
+    /* background-image: url("https://images.wallpaperscraft.com/image/single/apple_drops_black_background_118624_300x188.jpg");
+    background-size: contain; */
+}
+
+.generateQRCodeButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.urlInput {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.textbox-and-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.qrCodeContainer {
+    position: absolute;
+    bottom: 2cm;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.qrCodeContainer {
+    border-radius: 25%;
+}
+
+.abdo {
+    color: black;
+}
+
+.background {
+    background-color: blueviolet;
+    background-color: darkgoldenrod;
+    text-align: center;
+    width: 50%;
+    float: left;
+
+}
+
+.urlInput {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.qrCodeContainer {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.qrCodeImage {
+    width: 100%;
+    height: 100%;
+}

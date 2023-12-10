@@ -1,0 +1,6 @@
+sort1 uses: bubble sort
+How do you know?: from run time , it's give the same range of numbers in random and reversed but in the sorted it's fast
+sort2 uses: merge sort
+How do you know?: from run time , it's give the same range of small numbers in random reversed and sorted.
+sort3 uses: selection sort
+How do you know?: from run time , it's give the same range of big numbers in random reversed and sorted.

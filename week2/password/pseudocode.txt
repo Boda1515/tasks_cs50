@@ -1,0 +1,77 @@
+string upper(string word)
+{
+    // string word = get_string("Enter your word: ");
+    for (int i = 0; i < strlen(word); i++)
+    {
+        if (word[i] >= 'a' && word[i] <= 'z')
+        {
+            printf("%C", word[i] - 32);
+        }
+        else
+        {
+            printf("%C", word[i]);
+        }
+    }
+    printf("\n");
+    return word;
+}
+/////////////////////////////////////////////////////////
+ string lower(string s)
+    {
+        // string word = get_string("Enter:");
+        for (int i = 0; i < strlen(word); i++)
+        {
+            if (word[i] >= 'A' && word[i] <= 'Z')
+            {
+                printf("%c", word[i] + 32);
+            }
+            else
+            {
+                printf("%c", word[i]);
+            }
+        }
+        printf("\n");
+        return s;
+    }
+//////////////////////////////////////////////////////////
+void num(void)
+{
+    int number;
+    do
+    {
+        number = get_int("Enter:");
+    }
+    while (number < 0);
+}
+//////////////////////////////////////////////////////////
+// func to check is the input is symbol.
+bool is_symbol(string s)
+    {
+        for (int i = 0; i < strlen(s); i++)
+        {
+            if (s[i] >= '!' && s[i] <= '/')
+            {
+                return true;
+            }
+            else if (s[i] >= ':' && s[i] <= '@')
+            {
+                return true;
+            }
+            else if (s[i] >= '[' && s[i] <= '`')
+            {
+                return true;
+            }
+            else if (s[i] >= '{' && s[i] <= '~')
+            {
+                return true;
+            }
+            else
+            {
+               printf("This is not symbol\n");
+               return false;
+            }
+        }
+        printf("\n");
+        return true;
+    }
+//////////////////////////////////////////////////////////////

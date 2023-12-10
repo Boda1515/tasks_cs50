@@ -1,0 +1,2 @@
+To get the average
+sum(hours)/number of weeks.

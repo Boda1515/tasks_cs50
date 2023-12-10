@@ -1,0 +1,5 @@
+Prompet user for input(Height)
+Height is between 1 and 8
+Iterate from 1 through height
+Change the shape # from left to right
+Change the left alignment by inear loop in the main loop.

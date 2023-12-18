@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1> Summarizing Table </h1>
+    <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+             <!-- which stocks the user owns -->
+            <th>Symbol</th>
+            <!-- The numbers of shares owned -->
+            <th>Shares</th>
+            <!-- The current price of each stock -->
+            <th>Price</th>
+            <!-- The total value of each holding (i.e., shares times price) -->
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in user_portfolio %}
+            <tr>
+                <td>{{ stock.symbol|upper }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.current_price | usd }}</td>
+                <td>{{ stock.total_holding | usd }}</td> <!-- Round to 2 decimal places for display -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="cash">
+    <span>Cash Balance : {{ cash | usd }} 💸💸</span>
+    <span>Grand Total : {{ grand_total | usd }}</span>
+</div>
+
+{% endblock %}
+

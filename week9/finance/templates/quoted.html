@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <p style=" background-color: greenyellow;
+    width: fit-content;
+    margin: inherit;
+    padding: 11px;
+    border-radius: 5px;"> The CurrentPrice of the symbol  "{{quote.symbol}}"  is : {{ price }}</p>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<h3 id="flash">Select & Sell</h3>
+<form action="/sell" method="post">
+    <div class="mb-3">
+        <select class="form-select mx-auto w-auto" name="symbol" id="symbolSelect">
+            <option disabled selected>Symbol</option>
+            {% for key in symbol_shares_dict %}
+                <option value='{{ key }}'>{{ key }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <!-- Use JavaScript to update the max attribute dynamically based on the selected symbol -->
+        <input autocomplete="off" class="form-control mx-auto w-auto" min="0" name="shares" placeholder="Shares"
+            type="number" id="sharesInput">
+    </div>
+    <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+
+<script>
+    // Get the select and input elements
+    let symbolSelect = document.getElementById('symbolSelect');
+    let sharesInput = document.getElementById('sharesInput');
+
+    // Create a JavaScript variable with symbol_shares_dict data
+    let symbolSharesDict = {{ symbol_shares_dict | tojson | safe }};
+
+    // Event listener for when the symbol is changed
+    symbolSelect.addEventListener('change', function () {
+        // Get the selected symbol
+        let selectedSymbol = symbolSelect.value;
+
+        // Set the maximum value of shares input based on the selected symbol
+        sharesInput.max = selectedSymbol ? symbolSharesDict[selectedSymbol] : Number.MAX_SAFE_INTEGER;
+
+        // Ensure the current value is within the valid range
+        let currentValue = parseInt(sharesInput.value);
+        if (isNaN(currentValue) || currentValue < 0) {
+            sharesInput.value = 0;
+        } else if (currentValue > parseInt(sharesInput.max)) {
+            sharesInput.value = sharesInput.max;
+        }
+    });
+
+    // Toggles visibility of greeting
+    function blink() {
+        let body = document.querySelector('#flash');
+        if (body.style.visibility == 'hidden') {
+            body.style.visibility = 'visible';
+        } else {
+            body.style.visibility = 'hidden';
+        }
+    }
+
+    // Blink every 850ms
+    window.setInterval(blink, 1000);
+</script>
+{% endblock %}
